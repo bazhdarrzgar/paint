@@ -1,0 +1,74 @@
+<html>
+<title>hello world</title>
+<head>
+    <script src="script.js"></script>
+    <style>
+        #box, #output{
+            float: left;
+        }
+    </style>
+ 
+</head>
+<body>
+<div>
+<form id="form1" runat="server">
+    <input type='file' id="imgInp"/>
+    <input name="source" type="text" style="width: 100%">
+</form>
+
+<div class="container">
+    <div id="output" style="width: 100px">
+        Output:
+    </div>
+  <center>
+	<div id = box style="width: calc(100% - 100px)">
+        <img style="width: 900px; height: 700px"/>
+    </div>
+  </center>
+</div>
+</div> 
+
+
+<script type="text/javascript">
+
+    var updateImg = function(_src){
+        $("#box img").attr("src",_src);
+        $("#output").html("output:");
+    };
+
+    $("input[name=source]").on("change",function(){
+        updateImg(this.value);
+    });
+
+    $("#box img").on("click", function(event){
+       console.log(this.height);
+       console.log(this.width);
+
+       console.log(event.offsetX);
+       console.log(event.offsetY);
+
+       var x = Math.round( event.offsetX / this.width * 100);
+       var y = Math.round( event.offsetY /this.height * 100);
+
+       $("#output").append("<br>" + x + "   -   " + y);
+
+    });
+
+
+    function readURL(input) {
+
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function(e) {
+                updateImg(e.target.result);
+            }
+
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+    $("#imgInp").change(function() {
+        readURL(this);
+    });
+</script>
+

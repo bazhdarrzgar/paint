@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Get Mouse Coordinates</title>
+    <script>
+        window.onload = function() {
+            window.onclick = function(e) {
+                var evt = window.event || e;
+                x_y = document.getElementById("result").innerHTML = "Mouse position: (   " + evt.clientX + ",  " + evt.clientY + "   )";
+                console.log(x_y)
+                // document.getElementById("myImage").style.left = evt.clientX + "px";
+                // document.getElementById("myImage").style.top = evt.clientY + "px";
+            }
+        }
+    </script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- <script>
+        window.addEventListener('mousemove', function (e) {
+        document.getElementById('x-value').textContent = e.x;
+        document.getElementById('y-value').textContent = e.y;
+    });
+    </script>
+    <p>
+        X: <span id="x-value"></span>
+    </p>
+    <p>
+        Y: <span id="y-value"></span>
+    </p> -->
+    
+    <div id = "result"></div>
+    <!-- <img id = "myImage" src="pngegg.png" style="position: absolute; top: 100px; left: 100px"/> -->
+</body>
+</html>
+
